@@ -3,6 +3,7 @@ import Header from './Header';
 import EventList from './EventList';
 import { Routes, Route } from 'react-router-dom';
 import Event from './Event';
+import './App.css';
 
 const Editor = () => {
   const [events, setEvents] = useState([]);
@@ -30,20 +31,23 @@ const Editor = () => {
   return (
     <>
       <Header />
-      {isError && <p>Something went wrong. Check the console.</p>}
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          <EventList events={events} />
-
-          <Routes>
-            <Route path=":id" element={<Event events={events} />} />
-          </Routes>
-        </>
-      )}
+      <div className="grid">
+        {isError && <p>Something went wrong. Check the console.</p>}
+        {isLoading ? (
+          <p className='loading'>Loading...</p>
+        ) : (
+          <>
+            <EventList events={events} />
+  
+            <Routes>
+              <Route path=":id" element={<Event events={events} />} />
+            </Routes>
+          </>
+        )}
+      </div>
     </>
   );
+  
 };
 
 export default Editor;
