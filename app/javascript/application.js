@@ -7,5 +7,9 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 
 document.addEventListener('DOMContentLoaded', () => {
-  root.render(<HelloMessage name="World" />);
+  root.render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
 });
