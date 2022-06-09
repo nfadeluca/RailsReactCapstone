@@ -8,18 +8,21 @@ const EventList = ({ events }) => {
 
         return eventArray.map((event) => (
             <li key={event.id}>
-              <NavLink to={`/events/${event.id}`}>
-                {event.event_date}
-                {' - '}
-                {event.event_type}
-              </NavLink>
+                <NavLink to={`/events/${event.id}`}>
+                    {event.event_date}
+                    {' - '}
+                    {event.event_type}
+                </NavLink>
             </li>
-          ));
+        ));
     };
 
     return (
         <section className="eventList">
-            <h2>Events</h2>
+            <h2>
+                Events
+                <Link to="/events/new">New Event</Link>
+            </h2>
             <ul>{renderEvents(events)}</ul>
         </section>
     );
