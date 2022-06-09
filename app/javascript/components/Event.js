@@ -6,6 +6,8 @@ const Event = ({ events, onDelete }) => {
   const { id } = useParams();
   const event = events.find((e) => e.id === Number(id));
 
+  if (!event) return <EventNotFound />;
+
   return (
     <div className="eventContainer">
       <h2>
